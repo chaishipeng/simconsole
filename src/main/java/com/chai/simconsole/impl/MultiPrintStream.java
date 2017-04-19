@@ -8,6 +8,6 @@ import java.io.PrintStream;
  */
 public class MultiPrintStream extends PrintStream {
     public MultiPrintStream(OutputStream out) {
-        super(out);
+        super(out, true);
     }
 }

@@ -38,6 +38,7 @@ public class TcpConsole implements Console {
 
     public void start() {
         isRunning = true;
+        multiOutputStream.addOutputStream(System.out);
         startSystemConsole();
         if (port > 0){
             startTcpConsole();
@@ -51,7 +52,6 @@ public class TcpConsole implements Console {
     private void startSystemConsole(){
         Thread thread = new Thread(new Runnable() {
             public void run() {
-                multiOutputStream.addOutputStream(System.out);
                 readLineByIs(System.in);
             }
         });

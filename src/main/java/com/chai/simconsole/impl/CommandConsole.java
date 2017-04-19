@@ -38,7 +38,7 @@ public class CommandConsole implements Console {
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 while(isRun){
-                    tcpConsole.getPrinter().print(prefix);
+                    tcpConsole.getPrinter().println(prefix);
                     String line = tcpConsole.readLine();
                     handlerLine(line);
                     tcpConsole.getPrinter().println();
