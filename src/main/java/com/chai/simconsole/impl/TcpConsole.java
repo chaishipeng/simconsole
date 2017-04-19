@@ -9,8 +9,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by chaishipeng on 2017/4/19.
@@ -41,7 +39,9 @@ public class TcpConsole implements Console {
     public void start() {
         isRunning = true;
         startSystemConsole();
-        startTcpConsole();
+        if (port > 0){
+            startTcpConsole();
+        }
     }
 
     public PrintStream getPrinter() {
